@@ -34,7 +34,7 @@
       <i class="fa fa-times clickable" title="Очистить поиск" *ngIf="$phonebook.searchQuery !== ''" (click)="clearSearch()"></i>
       <i class="fa fa-spin fa-spinner" *ngIf="$phonebook.isInSearchMode() === true && $phonebook.isLoading() === true"></i>
     </div>
-    <div class="user-info">
+    <div class="user-info" *ngIf="$session.getCurrentUser() !== null">
       <div class="controls">
         <i class="fa fa-star" *ngIf="$phonebook.getFavorites().length > 0" ><span class="notification">{{ $phonebook.getFavorites().length }}</span></i>
       </div>
