@@ -1,0 +1,97 @@
+.tree-item {
+  overflow: auto;
+  min-height: 30px;
+  margin: 10px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+  line-height: 30px;
+}
+.tree-item.with-children {
+  border: 1px solid #ECEFF1;
+}
+.tree-item .item-details {
+  overflow: auto;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+.tree-item .item-details.with-children {
+  background: #F3F3F6;
+}
+.tree-item .item-details.expanded {
+  background: #F5F5F5;
+  border-bottom: 2px solid #E0E0E0;
+}
+.tree-item .item-details .item-title {
+  float: left;
+  height: 30px;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+.tree-item .item-details .item-title:hover {
+  color: #0D47A1;
+}
+.tree-item .item-details .item-expander {
+  float: right;
+  height: 30px;
+  width: 30px;
+  box-sizing: border-box;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+}
+.tree-item.inline {
+  overflow: visible;
+  min-height: 10px;
+  height: auto !important;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  box-sizing: border-box;
+  line-height: 15px;
+}
+.tree-item.inline.with-children {
+  border: none;
+}
+.tree-item.inline .item-details {
+  overflow: auto;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+.tree-item.inline .item-details.with-children {
+  background: transparent;
+}
+.tree-item.inline .item-details.expanded {
+  background: transparent;
+  border-bottom: none;
+}
+.tree-item.inline .item-details.selected {
+  font-family: 'PT Sans Bold';
+}
+.tree-item.inline .item-details.selected .item-title {
+  color: #455A64;
+}
+.tree-item.inline .item-details .item-title {
+  overflow: visible;
+  float: left;
+  height: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  line-height: 14px;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  color: #607D8B;
+}
+.tree-item.inline .item-details .item-title:hover {
+  color: #0D47A1;
+}
+.tree-item.inline .item-details .item-expander {
+  display: none;
+  float: right;
+  height: auto;
+  width: 30px;
+  box-sizing: border-box;
+  font-size: 10px;
+  text-align: center;
+  cursor: pointer;
+}

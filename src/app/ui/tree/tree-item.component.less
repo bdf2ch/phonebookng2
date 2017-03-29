@@ -1,0 +1,121 @@
+@tree-item-height: 30px;
+@tree-item-height-inline: 20px;
+@tree-item-expander-width: 30px;
+
+.tree-item {
+  overflow: auto;
+  min-height: @tree-item-height;
+  margin: 10px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+  line-height: @tree-item-height;
+
+  &.with-children {
+    border: 1px solid #ECEFF1;
+  }
+
+  .item-details {
+    overflow: auto;
+    padding-left: 10px;
+    box-sizing: border-box;
+
+    &.with-children {
+      background: #F3F3F6;
+    }
+
+    &.expanded {
+      background: #F5F5F5;
+      border-bottom: 2px solid #E0E0E0;
+    }
+
+    &.selected {
+      //background: #E3F2FD;
+    }
+
+    .item-title {
+      float: left;
+      height: @tree-item-height;
+      font-size: 15px;
+      text-align: left;
+      cursor: pointer;
+      &:hover {
+        color: #0D47A1;
+      }
+    }
+    .item-expander {
+      float: right;
+      height: @tree-item-height;
+      width: @tree-item-expander-width;
+      box-sizing: border-box;
+      font-size: 12px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+
+
+  &.inline {
+    overflow: visible;
+    min-height: 10px;
+    height: auto !important;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    box-sizing: border-box;
+    line-height: @tree-item-height-inline - 5px;
+
+    &.with-children {
+      border: none;
+    }
+
+    .item-details {
+      overflow: auto;
+      padding-left: 10px;
+      box-sizing: border-box;
+
+      &.with-children {
+        background: transparent;
+      }
+
+      &.expanded {
+        background: transparent;
+        border-bottom: none;
+      }
+
+      &.selected {
+        font-family: 'PT Sans Bold';
+        //background: #E3F2FD;
+        .item-title {
+          color: #455A64;
+        }
+      }
+
+      .item-title {
+        overflow: visible;
+        float: left;
+        height: auto;
+        //min-height: @tree-item-height-inline;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        line-height: 14px;
+        font-size: 14px;
+        text-align: left;
+        cursor: pointer;
+        //color: #99A0B7;
+        color: #607D8B;
+        &:hover {
+          color: #0D47A1;
+        }
+      }
+      .item-expander {
+        display: none;
+        float: right;
+        height: auto;
+        width: @tree-item-expander-width;
+        box-sizing: border-box;
+        font-size: 10px;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+  }
+}

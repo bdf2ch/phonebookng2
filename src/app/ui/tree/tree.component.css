@@ -1,0 +1,86 @@
+.ui-tree-container .tree-item {
+  overflow: auto;
+  min-height: 30px;
+  margin: 0px;
+  box-sizing: border-box;
+  line-height: 30px;
+  background: #FAFAFA;
+  border: 1px solid #EEEEEE;
+}
+.ui-tree-container .tree-item.expanded .item-details {
+  background: #F5F5F5;
+  border-bottom: 2px solid #E0E0E0;
+}
+.ui-tree-container .tree-item .item-details {
+  overflow: auto;
+  padding-left: 10px;
+}
+.ui-tree-container .tree-item .item-details .item-title {
+  float: left;
+  height: 30px;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+.ui-tree-container .tree-item .item-details .item-title:hover {
+  color: #0D47A1;
+}
+.ui-tree-container .tree-item .item-details .item-expander {
+  float: right;
+  height: 30px;
+  width: 30px;
+  box-sizing: border-box;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+}
+.ui-tree-container.inline .tree-item {
+  overflow: auto;
+  height: auto !important;
+  min-height: 10px;
+  margin: 0px;
+  box-sizing: border-box;
+  line-height: 20px;
+  background: transparent;
+  border: none;
+}
+.ui-tree-container.inline .tree-item.expanded .item-details {
+  background: transparent;
+  border: none;
+}
+.ui-tree-container.inline .tree-item .item-details {
+  overflow: auto;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+.ui-tree-container.inline .tree-item .item-details.selected {
+  font-family: 'Roboto Bold';
+}
+.ui-tree-container.inline .tree-item .item-details.selected .item-title {
+  color: #607D8B;
+}
+.ui-tree-container.inline .tree-item .item-details .item-title {
+  overflow: visible;
+  float: left;
+  height: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: left;
+  line-height: 14px;
+  font-size: 14px;
+  color: #607D8B !important;
+  cursor: pointer;
+}
+.ui-tree-container.inline .tree-item .item-details .item-title:hover {
+  color: #0D47A1;
+}
+.ui-tree-container.inline .tree-item .item-details .item-expander {
+  display: none;
+  float: right;
+  height: 25px;
+  width: 30px;
+  box-sizing: border-box;
+  font-size: 10px;
+  text-align: center;
+  cursor: pointer;
+}

@@ -1,0 +1,53 @@
+<div [@fog]="opened" id="authorization-fog" *ngIf="opened"></div>
+<div [@popup]="opened.toString()" id="authorization-popup" *ngIf="opened">
+  <div id="authorization-header" class="row">
+    <div class="icon">
+      <i class="fa fa-user"></i>
+    </div>
+  </div>
+  <div id="authorization-title" class="row">Авторизация</div>
+  <div class="row">
+    <form (submit)="send(authorizationForm)" #authorizationForm="ngForm">
+      <div class="row padding-20">
+        <div class="row margin-bottom-10">
+          <label for="user-login" class="width-100 text-left">Учетная запись
+            <div class="form-error right" *ngIf="log.invalid && log.dirty">Вы не ввели учетную запись</div>
+            <div class="form-error right" *ngIf="userNotFound">Пользователь не найден</div>
+          </label>
+          <input type="text"
+                 name="login"
+                 id="user-login"
+                 class="width-100 dark"
+                 placeholder="Введите учетную запись"
+                 required
+                 [(ngModel)]="login"
+                 #log="ngModel">
+        </div>
+        <div class="row">
+          <label for="user-password" class="width-100">Пароль
+            <div class="form-error right" *ngIf="pass.invalid && pass.dirty">Вы не ввели пароль</div></label>
+          <input type="password"
+                 name="password"
+                 id="user-password"
+                 class="width-100 dark"
+                 placeholder="Введите пароль"
+                 required
+                 [(ngModel)]="password"
+                 #pass="ngModel">
+        </div>
+      </div>
+      <div id="authorization-footer" class="row padding-20">
+        <div class="row margin-bottom-5">
+          <button type="submit" class="blue width-100" [disabled]="authorizationForm.invalid">
+            <i class="fa fa-sign-in margin-right-10"></i>Войти
+          </button>
+        </div>
+        <div class="row">
+          <button type="button" class="red width-100" (click)="close(authorizationForm)">
+            <i class="fa fa-ban margin-right-10"></i> Отмена
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

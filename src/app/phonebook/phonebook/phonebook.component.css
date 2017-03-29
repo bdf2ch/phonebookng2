@@ -23,6 +23,24 @@
   box-sizing: border-box;
   border-right: 1px solid lightgrey;
 }
+#app-header #app-user .app-logo {
+  float: left;
+  width: 60px;
+  height: 50px;
+  margin-right: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  background: url('/assets/images/logo.png');
+  background-size: cover;
+}
+#app-header #app-user .app-title {
+  font-family: 'PT Sans Bold';
+  font-size: 18px;
+  text-transform: uppercase;
+  line-height: 60px;
+  color: #9098B1;
+}
 #app-header #app-user .link {
   color: #039BE5;
   text-decoration: underline;
@@ -125,10 +143,87 @@
   box-sizing: border-box;
 }
 #app-header #app-search .input-with-controls {
+  flex: 1;
   background: white;
 }
 #app-header #app-search .input-with-controls input {
   background: white;
+}
+#app-header #app-search .user-info {
+  width: 300px;
+  height: 100%;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+#app-header #app-search .user-info .user-photo {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  box-sizing: border-box;
+  background: white;
+  text-align: center;
+  border-radius: 50%;
+}
+#app-header #app-search .user-info .user-photo .fa {
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  line-height: 40px;
+  color: #CFD8DC;
+}
+#app-header #app-search .user-info .user-details {
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 40px;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #9098B1;
+}
+#app-header #app-search .user-info .user-details .user-name .fa {
+  margin-left: 5px;
+  font-size: 14px;
+}
+#app-header #app-search .user-info .user-details .user-position {
+  color: #9098B1;
+}
+#app-header #app-search .user-info .controls {
+  float: left;
+  height: 40px;
+  margin-top: 2px;
+  margin-right: 20px;
+  margin-left: 10px;
+  box-sizing: border-box;
+  line-height: 40px;
+}
+#app-header #app-search .user-info .controls .fa {
+  position: relative;
+  float: left;
+  z-index: 1;
+  height: 40px;
+  font-size: 18px;
+  line-height: 40px;
+  color: #9098B1;
+}
+#app-header #app-search .user-info .controls .fa .notification {
+  position: relative;
+  float: right;
+  z-index: 2;
+  display: inline-block;
+  min-width: 10px;
+  margin-top: 1px;
+  margin-left: -5px;
+  font-family: 'PT Sans Bold';
+  font-size: 11px;
+  text-align: center;
+  line-height: 11px;
+  padding: 3px;
+  color: white;
+  background: #FF3463;
+  border-radius: 4px;
 }
 #app-divisions {
   overflow: auto;
@@ -139,12 +234,6 @@
   width: 400px;
   box-sizing: border-box;
   background: #FCFCFD;
-}
-#app-divisions .ui-tree-container {
-  background: #E2E5EE;
-}
-#app-divisions .ui-tree-container.inline .tree-item {
-  background: #E2E5EE;
 }
 #app-contacts {
   overflow: auto;
@@ -178,6 +267,20 @@
   bottom: 0px;
   box-sizing: border-box;
 }
+#app-contacts .favorites-title {
+  margin-bottom: 30px;
+  padding: 20px;
+  font-size: 26px;
+  text-align: center;
+  color: #BDBDBD;
+}
+#app-contacts .favorites-title .fa {
+  margin-right: 10px;
+  padding: 10px;
+  color: #FFC107;
+  background: #BDBDBD;
+  border-radius: 50%;
+}
 #app-contacts .no-contacts {
   display: flex;
   flex: auto;
@@ -189,7 +292,7 @@
   font-size: 20px;
   line-height: 22px;
   text-align: center;
-  color: #BDBDBD;
+  color: #E0E0E0;
 }
 #app-contacts .contact {
   overflow: auto;
@@ -400,6 +503,9 @@
 }
 .contact-item.grid .favorite:hover .fa {
   color: white;
+}
+.contact-item.grid .favorite.active .fa {
+  color: #FFC107;
 }
 .contact-item.grid .favorite .fa {
   float: left;

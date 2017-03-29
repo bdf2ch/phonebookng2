@@ -1,0 +1,310 @@
+<div id="app-header">
+  <div id="app-user">
+    <!--
+    <div class="not-authorized width-100 text-center" *ngIf="$session.getCurrentUser() === null">
+      Вы не авторизованы. Пройдите авторизацию для доступа ко всем функциям приложения.
+      <span class="link" (click)="openLoginPopup()"><i class="fa fa-sign-in margin-right-5"></i>Войти</span>
+    </div>
+
+    <div *ngIf="$session.getCurrentUser() !== null">
+      <div class="user-photo"><i class="fa fa-user"></i></div>
+      <div class="user-details">
+        <div class="user-name">{{ $session.getCurrentUser().name + ' ' + $session.getCurrentUser().surname }}<i class="fa fa-caret-down"></i></div>
+      </div>
+      <div class="controls">
+        <i class="fa fa-star"><span class="notification">12</span></i>
+      </div>
+    </div>
+    -->
+    <div class="app-logo"></div>
+    <span class="app-title">Телефонный справочник</span>
+  </div>
+  <div id="app-search">
+    <div class="input-with-controls dark">
+      <i class="fa fa-search"></i>
+      <input type="text"
+             name="search"
+             id="contacts-search"
+             class="big"
+             placeholder="Введите имя, e-mail или телефон пользователя"
+             #search
+             [ngClass]="{'non-searchable': search.value.length < 3}"
+             (keyup)="searchForContacts(search.value)"
+             [(ngModel)]="$phonebook.searchQuery">
+      <i class="fa fa-times clickable" title="Очистить поиск" *ngIf="$phonebook.searchQuery !== ''" (click)="clearSearch()"></i>
+      <i class="fa fa-spin fa-spinner" *ngIf="$phonebook.isInSearchMode() === true && $phonebook.isLoading() === true"></i>
+    </div>
+    <div class="user-info">
+      <div class="controls">
+        <i class="fa fa-star" *ngIf="$phonebook.getFavorites().length > 0" ><span class="notification">{{ $phonebook.getFavorites().length }}</span></i>
+      </div>
+      <div class="user-photo"><i class="fa fa-user"></i></div>
+      <div class="user-details">
+        <div class="user-name">{{ $session.getCurrentUser().name + ' ' + $session.getCurrentUser().surname }}<i class="fa fa-caret-down"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="app-divisions" class="padding-10">
+  <tree [id]="'divisions'"
+        [expandOnSelect]="true"
+        [collapseOnDeselect]="true"
+        (onSelect)="selectDivision($event)"
+        class="inline">
+  </tree>
+</div>
+
+
+<div id="app-contacts" class="padding-20">
+
+  <!--
+  <div class="contact" *ngFor="let contact of $phonebook.getAll()">
+    <div class="contact-photo">
+      <div class="photo no-photo"></div>
+    </div>
+    <div class="contact-info">
+      <span class="contact-fio">{{ contact.surname }}<br> {{ contact.name + ' ' + contact.fname }}</span>
+      <span class="contact-position">{{ contact.position }}</span>
+      <div class="contact-phone">
+        <i class="fa fa-phone margin-right-5"></i>
+        <span class="phone">555-666</span>
+      </div>
+      <div class="contact-phone">
+        <i class="fa fa-phone margin-right-5"></i>
+        <span class="phone">22-43</span>
+      </div>
+      <div class="mobile-phone">
+        <i class="fa fa-mobile-phone margin-right-5"></i>
+        <span class="phone">+7 (921) 555-66-77</span>
+      </div>
+      <div class="email" *ngIf="contact.email !== ''">
+        <i class="fa fa-at margin-right-5"></i>
+        <span class="mail"><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></span>
+      </div>
+    </div>
+  </div>
+  -->
+
+
+  <!--
+    <div class="contact-list-item">
+      <div class="photo"></div>
+      <div class="fio">
+        <div class="name">Константинов Константин Константинович</div>
+      </div>
+      <div class="position">Менеджер по сбору бутылок</div>
+      <div class="phone">
+        <div class="phone-item">
+          <i class="fa fa-phone margin-right-5"></i>
+          22-44
+        </div>
+        <div class="phone-item">
+          <i class="fa fa-phone margin-right-5"></i>
+          24-47
+        </div>
+      </div>
+      <div class="email"><i class="fa fa-at"></i>kkkonstantinov@kolenergo.ru</div>
+      <div class="mobile"><i class="fa fa-mobile-phone"></i>+7 (921) 555-66-77</div>
+    </div>
+    -->
+
+  <div class="row" *ngIf="divisionId === 0 && $phonebook.getAll().length === 0">
+    <div class="row favorites-title">
+      <i class="fa fa-star"></i>
+      Ваши избранные контакты
+    </div>
+    <div class="contact-item grid" *ngFor="let contact of $phonebook.getFavorites()">
+      <div class="favorite" title="{{ $phonebook.isContactInFavorites(contact) === true ? 'Удалить из избранных' : 'Добавить в избранные' }}" *ngIf="$session.getCurrentUser() !== null" [ngClass]="{active: $phonebook.isContactInFavorites(contact) === true}"  (click)="addToFavorites(contact)"><i class="fa fa-star"></i></div>
+      <div class="photo" [ngClass]="{'with-photo': contact.photo !== ''}" [ngStyle]="{'background': contact.photo !== '' ? 'url(' + contact.photo + ')' : ''}">
+      </div>
+      <div class="name">{{ contact.surname }}<br>{{ contact.name + ' ' + contact.fname }}</div>
+      <div class="position" title="{{ contact.position }}">{{ contact.position }}</div>
+      <div class="work-phone">
+        <div class="work-phone-item">
+          <i class="fa fa-phone" title="Рабочий телефон"></i>333-44
+        </div>
+      </div>
+      <div class="mobile-phone">
+        <i class="fa fa-mobile-phone" title="Мобильный телефон"></i>+7 (921) 555-66-77
+      </div>
+      <div class="email">
+        <i class="fa fa-at" title="Электронная почта"></i><a href="mailto:{{ contact.email }}" *ngIf="contact.email !== ''">{{ contact.email }}</a>
+        <span class="empty-value" *ngIf="contact.email === ''">Не указан</span>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="contact-item grid" *ngFor="let contact of $phonebook.getAll()">
+    <div class="favorite" title="{{ $phonebook.isContactInFavorites(contact) === true ? 'Удалить из избранных' : 'Добавить в избранные' }}" *ngIf="$session.getCurrentUser() !== null" [ngClass]="{active: $phonebook.isContactInFavorites(contact) === true}"  (click)="addToFavorites(contact)"><i class="fa fa-star"></i></div>
+    <div class="photo" [ngClass]="{'with-photo': contact.photo !== ''}" [ngStyle]="{'background': contact.photo !== '' ? 'url(' + contact.photo + ')' : ''}">
+    </div>
+    <div class="name">{{ contact.surname }}<br>{{ contact.name + ' ' + contact.fname }}</div>
+    <div class="position" title="{{ contact.position }}">{{ contact.position }}</div>
+    <div class="work-phone">
+      <div class="work-phone-item">
+        <i class="fa fa-phone" title="Рабочий телефон"></i>22-41
+      </div>
+      <div class="work-phone-item">
+        <i class="fa fa-phone" title="Рабочий телефон"></i>333-44
+      </div>
+    </div>
+    <div class="mobile-phone">
+      <i class="fa fa-mobile-phone" title="Мобильный телефон"></i>+7 (921) 555-66-77
+    </div>
+    <div class="email">
+      <i class="fa fa-at" title="Электронная почта"></i><a href="mailto:{{ contact.email }}" *ngIf="contact.email !== ''">{{ contact.email }}</a>
+      <span class="empty-value" *ngIf="contact.email === ''">Не указан</span>
+    </div>
+  </div>
+
+
+  <!--
+  <div class="contact-item grid">
+    <div class="favorite"><i class="fa fa-star"></i></div>
+    <div class="photo"></div>
+    <div class="name">Константинов Константин Константинович</div>
+    <div class="position">Менеджер по сбору бутылок</div>
+    <div class="work-phone">
+      <div class="work-phone-item">
+        <i class="fa fa-phone"></i>22-41
+      </div>
+      <div class="work-phone-item">
+        <i class="fa fa-phone"></i>333-44
+      </div>
+    </div>
+    <div class="mobile-phone">
+      <i class="fa fa-mobile-phone"></i>+7 (921) 555-66-77
+    </div>
+    <div class="email">
+      <i class="fa fa-at"></i><a href="mailto:savorono@kolenergo.ru">savoronov@kolenergo.ru</a>
+    </div>
+  </div>
+
+  <div class="contact-item grid">
+    <div class="favorite"><i class="fa fa-star"></i></div>
+    <div class="photo"></div>
+    <div class="name">Константинов Константин Константинович</div>
+    <div class="position">Менеджер по сбору бутылок</div>
+    <div class="work-phone">
+      <div class="work-phone-item">
+        <i class="fa fa-phone"></i>22-41
+      </div>
+      <div class="work-phone-item">
+        <i class="fa fa-phone"></i>333-44
+      </div>
+    </div>
+    <div class="mobile-phone">
+      <i class="fa fa-mobile-phone"></i>+7 (921) 555-66-77
+    </div>
+    <div class="email">
+      <i class="fa fa-at"></i><a href="mailto:savorono@kolenergo.ru">savoronov@kolenergo.ru</a>
+    </div>
+  </div>
+
+  <div class="contact-item grid">
+    <div class="favorite"><i class="fa fa-star"></i></div>
+    <div class="photo"></div>
+    <div class="name">Константинов Константин Константинович</div>
+    <div class="position">Менеджер по сбору бутылок</div>
+    <div class="work-phone">
+      <div class="work-phone-item">
+        <i class="fa fa-phone"></i>22-41
+      </div>
+      <div class="work-phone-item">
+        <i class="fa fa-phone"></i>333-44
+      </div>
+    </div>
+    <div class="mobile-phone">
+      <i class="fa fa-mobile-phone"></i>+7 (921) 555-66-77
+    </div>
+    <div class="email">
+      <i class="fa fa-at"></i><a href="mailto:savorono@kolenergo.ru">savoronov@kolenergo.ru</a>
+    </div>
+  </div>
+
+  <div class="contact-item grid">
+    <div class="favorite"><i class="fa fa-star"></i></div>
+    <div class="photo"></div>
+    <div class="name">Константинов Константин Константинович</div>
+    <div class="position">Менеджер по сбору бутылок</div>
+    <div class="work-phone">
+      <div class="work-phone-item">
+        <i class="fa fa-phone"></i>22-41
+      </div>
+      <div class="work-phone-item">
+        <i class="fa fa-phone"></i>333-44
+      </div>
+    </div>
+    <div class="mobile-phone">
+      <i class="fa fa-mobile-phone"></i>+7 (921) 555-66-77
+    </div>
+    <div class="email">
+      <i class="fa fa-at"></i><a href="mailto:savorono@kolenergo.ru">savoronov@kolenergo.ru</a>
+    </div>
+  </div>
+
+  <div class="contact-item grid">
+    <div class="favorite"><i class="fa fa-star"></i></div>
+    <div class="photo"></div>
+    <div class="name">Константинов Константин Константинович</div>
+    <div class="position">Менеджер по сбору бутылок</div>
+    <div class="work-phone">
+      <div class="work-phone-item">
+        <i class="fa fa-phone"></i>22-41
+      </div>
+      <div class="work-phone-item">
+        <i class="fa fa-phone"></i>333-44
+      </div>
+    </div>
+    <div class="mobile-phone">
+      <i class="fa fa-mobile-phone"></i>+7 (921) 555-66-77
+    </div>
+    <div class="email">
+      <i class="fa fa-at"></i><a href="mailto:savorono@kolenergo.ru">savoronov@kolenergo.ru</a>
+    </div>
+  </div>
+
+  <div class="contact-item grid">
+    <div class="favorite" title="Добавить в избранные"><i class="fa fa-star"></i></div>
+    <div class="photo"></div>
+    <div class="name">Константинов Константин Константинович</div>
+    <div class="position">Менеджер по сбору бутылок</div>
+    <div class="work-phone">
+      <div class="work-phone-item">
+        <i class="fa fa-phone"></i>22-41
+      </div>
+      <div class="work-phone-item">
+        <i class="fa fa-phone"></i>333-44
+      </div>
+    </div>
+    <div class="mobile-phone">
+      <i class="fa fa-mobile-phone"></i>+7 (921) 555-66-77
+    </div>
+    <div class="email">
+      <i class="fa fa-at"></i><a href="mailto:savorono@kolenergo.ru">savoronov@kolenergo.ru</a>
+    </div>
+  </div>
+  -->
+
+
+
+
+  <div class="no-contacts" *ngIf="($phonebook.isInSearchMode() === true && $phonebook.getAll().length === 0) || (divisionId !== 0 && $phonebook.getAll().length === 0)">
+    <i class="fa fa-search margin-right-10"></i>
+    Абоненты не найдены
+  </div>
+
+
+  <div class="no-contacts" *ngIf="divisionId === 0 && $phonebook.searchQuery === '' && $phonebook.getFavorites().length === 0">
+    Выберите структурное подразделение <br>или начните вводить имя абонента
+  </div>
+
+</div>
+
+
+<authorization [isOpened]="loginPopupIsOpened" (onClose)="loginPopupIsOpened = false"></authorization>
