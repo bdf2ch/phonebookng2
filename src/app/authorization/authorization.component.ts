@@ -3,6 +3,8 @@ import {
   animate, style, SimpleChanges
 } from '@angular/core';
 import { SessionService } from "../phonebook/session.service";
+import {PhoneBookService} from "../phonebook/phone-book.service";
+import {Contact} from "../phonebook/Contact.model";
 
 @Component({
   selector: 'authorization',
@@ -38,7 +40,9 @@ export class AuthorizationComponent implements OnInit, AfterViewChecked, OnChang
   password: string = '';
 
 
-  constructor(private $element: ElementRef, private $session: SessionService) { }
+  constructor(private $element: ElementRef,
+              private $session: SessionService,
+              private $phonebook: PhoneBookService) { }
 
   ngOnChanges (changes: SimpleChanges) {
     console.log(changes);
@@ -89,13 +93,21 @@ export class AuthorizationComponent implements OnInit, AfterViewChecked, OnChang
    * @param form
    */
   send(form: any): void {
-    this.$session.login(this.login, this.password).subscribe((result: boolean) => {
+    this.$session.login(this.login, this.password).subscribe((result: any) => {
       console.log(result);
+      if (result['data']['favoriteContacts'] !== undefined) {
+        let length = result.data.favoriteContacts.length;
+        for (let i = 0; i < length; i++) {
+          let contact = new Contact(result.data.favoriteContacts[i]);
+          this.$phonebook.getFavorites().push(contact);
+        }
+      }
       if (result)
         this.close(form);
       else
         this.userNotFound = true;
     });
   };
+
 
 }

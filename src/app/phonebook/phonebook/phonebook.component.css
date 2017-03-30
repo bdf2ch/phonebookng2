@@ -8,7 +8,7 @@
   right: 0px;
   height: 60px;
   box-sizing: border-box;
-  background: #E8EAF6;
+  background: white;
   border-bottom: 1px solid #EAEAF0;
   -webkit-box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.56);
   -moz-box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.56);
@@ -19,9 +19,7 @@
   width: 400px;
   height: 60px;
   padding-left: 20px;
-  padding-right: 20px;
   box-sizing: border-box;
-  border-right: 1px solid lightgrey;
 }
 #app-header #app-user .app-logo {
   float: left;
@@ -74,7 +72,9 @@
   height: 40px;
   font-size: 30px;
   line-height: 40px;
-  color: #CFD8DC;
+  color: #9C9BB4;
+  border: 1px solid #9C9BB4;
+  border-radius: 50%;
 }
 #app-header #app-user .user-details {
   float: left;
@@ -87,7 +87,7 @@
   margin-bottom: 10px;
   box-sizing: border-box;
   font-size: 16px;
-  color: #9098B1;
+  color: #9C9BB4;
 }
 #app-header #app-user .user-details .user-name .fa {
   margin-left: 5px;
@@ -111,7 +111,7 @@
   height: 40px;
   font-size: 18px;
   line-height: 40px;
-  color: #9098B1;
+  color: #CCCCD9;
 }
 #app-header #app-user .controls .fa .notification {
   position: relative;
@@ -144,10 +144,12 @@
 }
 #app-header #app-search .input-with-controls {
   flex: 1;
-  background: white;
+  color: #9596AA;
+  background: #F5F5F8;
 }
 #app-header #app-search .input-with-controls input {
-  background: white;
+  color: #9596AA;
+  background: #F5F5F8;
 }
 #app-header #app-search .user-info {
   width: 300px;
@@ -225,15 +227,28 @@
   background: #FF3463;
   border-radius: 4px;
 }
+#app-header #app-search .user-login {
+  width: 300px;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+#app-header #app-search .user-login button {
+  height: 41px;
+  color: #607D8B;
+  background: #ECEFF1;
+}
+#app-header #app-search .user-login button:hover {
+  border: 1px solid #B0BEC5;
+}
 #app-divisions {
-  overflow: auto;
+  overflow: hidden;
   position: absolute;
   left: 0px;
   top: 60px;
   bottom: 0px;
   width: 400px;
   box-sizing: border-box;
-  background: #FCFCFD;
+  background: #E2E5EE;
 }
 #app-contacts {
   overflow: auto;
@@ -243,7 +258,7 @@
   right: 0px;
   bottom: 0px;
   box-sizing: border-box;
-  background: #F3F3F6;
+  background: #F3F3F8;
 }
 #app-contacts #search-bar {
   position: absolute;
@@ -368,109 +383,6 @@
   font-family: 'PT Sans Bold';
   font-size: 18px;
   color: #595872;
-}
-.contact-list-item {
-  display: flex;
-  flex-direction: row;
-  min-height: 80px;
-  padding: 10px;
-  box-sizing: border-box;
-  background: white;
-  border-radius: 4px;
-}
-.contact-list-item .photo {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: lightgrey;
-}
-.contact-list-item .fio {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 20%;
-  box-sizing: border-box;
-  padding-left: 20px;
-}
-.contact-list-item .fio .name {
-  margin-bottom: 5px;
-  font-family: 'PT Sans Bold';
-  line-height: 17px;
-}
-.contact-list-item .fio .position {
-  font-family: 'PT Sans Italic';
-  color: #0D47A1;
-}
-.contact-list-item .position {
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding-left: 20px;
-  box-sizing: border-box;
-  font-family: 'PT Sans Italic';
-  color: #0D47A1;
-}
-.contact-list-item .email {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 20%;
-  padding-left: 20px;
-  box-sizing: border-box;
-}
-.contact-list-item .phone {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 20%;
-  padding-left: 20px;
-  box-sizing: border-box;
-}
-.contact-list-item .phone .phone-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 5px;
-  font-family: 'PT Sans';
-  font-size: 16px;
-}
-.contact-list-item .phone .phone-item .fa {
-  width: 20px;
-  height: 20px;
-  font-size: 16px;
-  line-height: 20px;
-  color: #004D40;
-  text-align: center;
-  background: #E0F2F1;
-  border-radius: 50%;
-}
-.contact-list-item .mobile {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 20%;
-  margin-bottom: 5px;
-  font-family: 'PT Sans';
-  font-size: 20px;
-  padding-left: 20px;
-  box-sizing: border-box;
-}
-.contact-list-item .mobile .fa {
-  width: 20px;
-  height: 20px;
-  font-size: 14px;
-  line-height: 25px;
-  color: #004D40;
-  text-align: center;
-  background: #E0F2F1;
-  border-radius: 50%;
 }
 .contact-item.grid {
   overflow: hidden;

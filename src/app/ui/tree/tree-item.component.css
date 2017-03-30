@@ -68,7 +68,7 @@
   font-family: 'PT Sans Bold';
 }
 .tree-item.inline .item-details.selected .item-title {
-  color: #455A64;
+  color: #3F51B5;
 }
 .tree-item.inline .item-details .item-title {
   overflow: visible;
@@ -77,13 +77,14 @@
   padding-top: 5px;
   padding-bottom: 5px;
   line-height: 14px;
+  font-family: 'PT Sans Bold';
   font-size: 14px;
   text-align: left;
   cursor: pointer;
-  color: #607D8B;
+  color: #595872;
 }
 .tree-item.inline .item-details .item-title:hover {
-  color: #0D47A1;
+  color: #6E6D84;
 }
 .tree-item.inline .item-details .item-expander {
   display: none;

@@ -6,6 +6,7 @@ import { TreeComponent } from './tree/tree.component';
 import { TreeItemComponent } from './tree/tree-item.component';
 import { TreeService } from "./tree/tree.service";
 import { TabsComponent } from './tabs/tabs.component';
+import { ScrollbarDirective } from './scrollbar/scrollbar.directive';
 
 
 @NgModule({
@@ -17,13 +18,15 @@ import { TabsComponent } from './tabs/tabs.component';
     ModalContentComponent,
     TreeComponent,
     TreeItemComponent,
-    TabsComponent
+    TabsComponent,
+    ScrollbarDirective
   ],
   exports: [
     ModalComponent,
     ModalContentComponent,
     TreeComponent,
-    TreeItemComponent
+    TreeItemComponent,
+    ScrollbarDirective
   ],
   providers: [
     ModalService,

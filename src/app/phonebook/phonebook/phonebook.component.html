@@ -5,6 +5,28 @@
       Вы не авторизованы. Пройдите авторизацию для доступа ко всем функциям приложения.
       <span class="link" (click)="openLoginPopup()"><i class="fa fa-sign-in margin-right-5"></i>Войти</span>
     </div>
+    -->
+
+
+    <!--
+    <div>
+      <div class="user-photo"><i class="fa fa-user"></i></div>
+      <div class="user-details">
+        <div class="user-name">Сергей Воронов<i class="fa fa-caret-down"></i></div>
+      </div>
+      <div class="controls">
+        <i class="fa fa-star"><span class="notification">12</span></i>
+      </div>
+    </div>
+    -->
+
+    <div class="user-login" *ngIf="$session.getCurrentUser() === null">
+      <button class="big width-100" (click)="openLoginPopup()">
+        <i class="fa fa-sign-in margin-right-10"></i>
+        Войти в систему
+      </button>
+    </div>
+
 
     <div *ngIf="$session.getCurrentUser() !== null">
       <div class="user-photo"><i class="fa fa-user"></i></div>
@@ -15,9 +37,12 @@
         <i class="fa fa-star"><span class="notification">12</span></i>
       </div>
     </div>
-    -->
+
+
+    <!--
     <div class="app-logo"></div>
     <span class="app-title">Телефонный справочник</span>
+    -->
   </div>
   <div id="app-search">
     <div class="input-with-controls dark">
@@ -43,17 +68,35 @@
         <div class="user-name">{{ $session.getCurrentUser().name + ' ' + $session.getCurrentUser().surname }}<i class="fa fa-caret-down"></i></div>
       </div>
     </div>
+
   </div>
 </div>
 
 
-<div id="app-divisions" class="padding-10">
+<div id="app-divisions" class="padding-10" scrollbar>
   <tree [id]="'divisions'"
         [expandOnSelect]="true"
         [collapseOnDeselect]="true"
         (onSelect)="selectDivision($event)"
         class="inline">
   </tree>
+
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci corporis debitis deleniti eaque eligendi et explicabo iste nam nihil, odit porro quis repellendus sed soluta sunt? Adipisci pariatur perferendis veniam.
+  <br><br>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus deleniti, ducimus eum eveniet expedita ipsam, itaque labore nemo omnis possimus qui recusandae veniam. Architecto exercitationem id molestiae pariatur ratione soluta?
+  <br><br>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda at blanditiis consequatur dolores ex, impedit incidunt labore modi nobis numquam officia repellendus tenetur ullam ut. Est possimus repellat sapiente?
+  <br><br>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A asperiores aspernatur at corporis cum cumque delectus deleniti dolore dolorem et eveniet in laborum maiores, placeat provident quod sit unde vero.
+  <br><br>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis impedit ipsam minus recusandae ut. Ab accusamus, aperiam asperiores at eveniet nulla provident quis quod vitae? Eum minima odio velit voluptas.
+  <br><br>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto blanditiis deleniti, itaque nobis odit quis sunt suscipit! Amet consequuntur facere in, iusto, laudantium, magnam placeat quod sint temporibus totam voluptatibus.
+  <br><br>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias animi aperiam, cumque debitis dolorum esse fugit id ipsam minima nam nihil nisi nobis obcaecati, quas repellat repellendus, reprehenderit tenetur!
+  <br><br>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut cumque excepturi iusto nostrum optio quibusdam repellendus sequi suscipit tempore! Aliquam, amet cumque deserunt eaque eius labore minima quas quasi!
+  <br><br>
 </div>
 
 
@@ -110,7 +153,7 @@
     </div>
     -->
 
-  <div class="row" *ngIf="divisionId === 0 && $phonebook.getAll().length === 0">
+  <div class="row" *ngIf="$session.getCurrentUser() !== null && divisionId === 0 && $phonebook.getAll().length === 0">
     <div class="row favorites-title">
       <i class="fa fa-star"></i>
       Ваши избранные контакты

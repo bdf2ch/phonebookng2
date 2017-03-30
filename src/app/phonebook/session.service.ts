@@ -76,7 +76,7 @@ export class SessionService {
             this.session.data = body.data;
           console.log('session user', this.user);
           console.log('session', this.session);
-          return true;
+          return body;
         } else
           return false;
       })

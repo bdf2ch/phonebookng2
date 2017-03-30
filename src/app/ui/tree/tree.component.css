@@ -52,12 +52,16 @@
   overflow: auto;
   padding-left: 10px;
   box-sizing: border-box;
+  font-family: 'PT Sans Bold';
 }
 .ui-tree-container.inline .tree-item .item-details.selected {
-  font-family: 'Roboto Bold';
+  font-family: 'PT Sans Bold';
 }
 .ui-tree-container.inline .tree-item .item-details.selected .item-title {
-  color: #607D8B;
+  color: #3F51B5;
+}
+.ui-tree-container.inline .tree-item .item-details.selected .item-title:hover {
+  color: #3F51B5;
 }
 .ui-tree-container.inline .tree-item .item-details .item-title {
   overflow: visible;
@@ -67,12 +71,13 @@
   padding-bottom: 5px;
   text-align: left;
   line-height: 14px;
+  font-family: 'PT Sans Bold';
   font-size: 14px;
-  color: #607D8B !important;
+  color: #89899F !important;
   cursor: pointer;
 }
 .ui-tree-container.inline .tree-item .item-details .item-title:hover {
-  color: #0D47A1;
+  color: #6E6D84;
 }
 .ui-tree-container.inline .tree-item .item-details .item-expander {
   display: none;

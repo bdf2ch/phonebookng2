@@ -528,7 +528,8 @@ textarea {
   align-items: center;
   padding-left: 10px;
   padding-right: 10px;
-  background: #E0E0E0;
+  box-sizing: border-box;
+  background: #F5F5F8;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   border-top-right-radius: 4px;
@@ -536,11 +537,11 @@ textarea {
 
   &.dark {
     input {
-      background: #E0E0E0;
+      background: #F5F5F8;
       border: none;
     }
     .fa {
-      //background: #E0E0E0;
+      background: #F5F5F8;
       border: none;
     }
   }
@@ -565,8 +566,9 @@ textarea {
     align-items: center;
     width: 20px;
     //height: @ui-input-height;
+    height: 41px;
     text-align: center;
-    color: gray;
+    color: #CCCCD9;
     &.clickable {
       cursor: pointer;
       &:hover {
@@ -1079,3 +1081,26 @@ table {
 }
 
 
+
+
+.ui-scrollbar {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  bottom: 20px;
+  width: 6px;
+  margin-left: 10px;
+  box-sizing: border-box;
+  background: #C2C7D7;
+  border-radius: 3px;
+
+  .bar {
+    height: 100px;
+    min-height: 10px;
+    background: #9098B1;
+    border-radius: 3px;
+    &:hover {
+      background: #595872;
+    }
+  }
+}
