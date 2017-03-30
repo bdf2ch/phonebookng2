@@ -1086,13 +1086,21 @@ table {
 .ui-scrollbar {
   position: absolute;
   right: 10px;
-  top: 20px;
-  bottom: 20px;
+  top: 0px;
+  bottom: 0px;
   width: 6px;
-  margin-left: 10px;
+  margin-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   box-sizing: border-box;
-  background: #C2C7D7;
-  border-radius: 3px;
+
+
+  .pane {
+    height: 100%;
+    box-sizing: border-box;
+    background: #C2C7D7;
+    border-radius: 3px;
+  }
 
   .bar {
     height: 100px;
