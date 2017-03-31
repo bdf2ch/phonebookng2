@@ -1,7 +1,7 @@
 import { Model } from "./Model.class";
 
 
-export class SessionConfig {
+export interface SessionConfig {
   id: number;
   user_id: number;
   token: string;

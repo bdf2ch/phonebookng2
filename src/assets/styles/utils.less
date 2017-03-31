@@ -1084,18 +1084,20 @@ table {
 
 
 .ui-scrollbar {
+  overflow: hidden;
   position: absolute;
   right: 10px;
   top: 0px;
   bottom: 0px;
   width: 6px;
-  margin-left: 20px;
+  //margin-left: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
   box-sizing: border-box;
 
 
   .pane {
+    overflow: hidden;
     height: 100%;
     box-sizing: border-box;
     background: #C2C7D7;
@@ -1103,7 +1105,8 @@ table {
   }
 
   .bar {
-    height: 100px;
+    position: relative;
+    //height: 100px;
     min-height: 10px;
     background: #9098B1;
     border-radius: 3px;

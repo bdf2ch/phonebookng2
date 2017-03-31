@@ -909,24 +909,25 @@ a.blue:hover {
   vertical-align: bottom;
 }
 .ui-scrollbar {
+  overflow: hidden;
   position: absolute;
   right: 10px;
   top: 0px;
   bottom: 0px;
   width: 6px;
-  margin-left: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
   box-sizing: border-box;
 }
 .ui-scrollbar .pane {
+  overflow: hidden;
   height: 100%;
   box-sizing: border-box;
   background: #C2C7D7;
   border-radius: 3px;
 }
 .ui-scrollbar .bar {
-  height: 100px;
+  position: relative;
   min-height: 10px;
   background: #9098B1;
   border-radius: 3px;

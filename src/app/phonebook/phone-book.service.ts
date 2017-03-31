@@ -17,6 +17,11 @@ export class PhoneBookService {
   searchQuery: string = '';
 
 
+  /**
+   * Конструктор сервиса
+   * @param $http {Http}
+   * @param $session {SessionService}
+   */
   constructor(private $http: Http,
               private $session: SessionService) {};
 
