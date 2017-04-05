@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { Division, DivisionConfig } from './Division.model';
 import { Observable } from 'rxjs/Observable';
+import { JsonRpcClientService } from '@bdf2ch/jsonrpc';
+import { JsonRpcResponse } from '@bdf2ch/jsonrpc';
 
 export const apiUrl = "/assets/serverside/api.php";
 
@@ -12,7 +14,8 @@ export class DivisionsService {
   selected: Division|null = null;
 
 
-  constructor(private http: Http) {};
+  constructor(private http: Http,
+              private $jsonrpc: JsonRpcClientService) {};
 
 
   /**
@@ -20,6 +23,19 @@ export class DivisionsService {
    * @returns {Observable<Division[]>}
    */
   fetchAll(): Observable<Division[]> {
+    return this.$jsonrpc.request(apiUrl, { 'method': 'getAllDivisions', id: 1})
+      .map((response: JsonRpcResponse) => {
+        let length = response['result'].length;
+        let result: Division[] = [];
+        for (let i = 0; i < length; i++) {
+          let division = new Division(response['result'][i]);
+          result.push(division);
+        }
+        return result;
+    });
+
+
+    /*
     let headers = new Headers({ "Content-Type": "application/json" });
     let options = new RequestOptions({ headers: headers });
     let parameters = { action: "getAllDivisions" };
@@ -37,8 +53,11 @@ export class DivisionsService {
         }
         console.log(result);
         return result;
+
+
       })
       .catch(this.handleError);
+      */
   };
 
 

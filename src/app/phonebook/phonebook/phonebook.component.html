@@ -20,29 +20,23 @@
     </div>
     -->
 
+    <!--
     <div class="user-login" *ngIf="$session.getCurrentUser() === null">
       <button class="big width-100" (click)="openLoginPopup()">
         <i class="fa fa-sign-in margin-right-10"></i>
         Войти в систему
       </button>
     </div>
+    -->
 
 
-    <div *ngIf="$session.getCurrentUser() !== null">
-      <div class="user-photo"><i class="fa fa-user"></i></div>
-      <div class="user-details">
-        <div class="user-name">{{ $session.getCurrentUser().name + ' ' + $session.getCurrentUser().surname }}<i class="fa fa-caret-down"></i></div>
-      </div>
-      <div class="controls">
-        <i class="fa fa-star"><span class="notification">12</span></i>
-      </div>
-    </div>
 
 
-    <!--
+
+
     <div class="app-logo"></div>
     <span class="app-title">Телефонный справочник</span>
-    -->
+
   </div>
   <div id="app-search">
     <div class="input-with-controls dark">
@@ -59,6 +53,7 @@
       <i class="fa fa-times clickable" title="Очистить поиск" *ngIf="$phonebook.searchQuery !== ''" (click)="clearSearch()"></i>
       <i class="fa fa-spin fa-spinner" *ngIf="$phonebook.isInSearchMode() === true && $phonebook.isLoading() === true"></i>
     </div>
+
     <div class="user-info" *ngIf="$session.getCurrentUser() !== null">
       <div class="controls">
         <i class="fa fa-star" *ngIf="$phonebook.getFavorites().length > 0" ><span class="notification">{{ $phonebook.getFavorites().length }}</span></i>

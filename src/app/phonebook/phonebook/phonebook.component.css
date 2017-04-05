@@ -6,38 +6,48 @@
   top: 0px;
   left: 0px;
   right: 0px;
-  height: 60px;
+  height: 65px;
   box-sizing: border-box;
-  background: white;
+  background: #03A9F4;
   border-bottom: 1px solid #EAEAF0;
   -webkit-box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.56);
   -moz-box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.56);
   box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.56);
 }
+#app-header #app-title {
+  width: 400px;
+  height: 65px;
+}
+#app-header #app-title .caption {
+  height: 40px;
+}
 #app-header #app-user {
   float: left;
   width: 400px;
-  height: 60px;
+  height: 65px;
   padding-left: 20px;
   box-sizing: border-box;
 }
 #app-header #app-user .app-logo {
   float: left;
-  width: 60px;
-  height: 50px;
+  width: 65px;
+  height: 55px;
   margin-right: 10px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 7px;
+  margin-bottom: 7px;
   box-sizing: border-box;
   background: url('/assets/images/logo.png');
   background-size: cover;
 }
 #app-header #app-user .app-title {
-  font-family: 'PT Sans Bold';
+  display: flex;
+  height: 40px;
+  font-family: 'Roboto Bold';
   font-size: 18px;
   text-transform: uppercase;
-  line-height: 60px;
-  color: #9098B1;
+  line-height: 65px;
+  color: white;
+  border-right: 1px solid #35BAF6;
 }
 #app-header #app-user .link {
   color: #039BE5;
@@ -52,13 +62,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 60px;
+  height: 65px;
   color: #9098B1;
 }
 #app-header #app-user .user-photo {
   float: left;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-right: 10px;
@@ -68,10 +78,10 @@
   border-radius: 50%;
 }
 #app-header #app-user .user-photo .fa {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   font-size: 30px;
-  line-height: 40px;
+  line-height: 45px;
   color: #9C9BB4;
   border: 1px solid #9C9BB4;
   border-radius: 50%;
@@ -82,7 +92,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  height: 40px;
+  height: 45px;
   margin-top: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
@@ -98,19 +108,19 @@
 }
 #app-header #app-user .controls {
   float: right;
-  height: 40px;
+  height: 45px;
   margin-top: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
-  line-height: 40px;
+  line-height: 45px;
 }
 #app-header #app-user .controls .fa {
   position: relative;
   float: left;
   z-index: 1;
-  height: 40px;
+  height: 45px;
   font-size: 18px;
-  line-height: 40px;
+  line-height: 45px;
   color: #CCCCD9;
 }
 #app-header #app-user .controls .fa .notification {
@@ -134,7 +144,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 60px;
+  height: 65px;
   margin-left: 400px;
   padding-top: 10px;
   padding-left: 20px;
@@ -159,8 +169,8 @@
 }
 #app-header #app-search .user-info .user-photo {
   float: left;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   margin-right: 10px;
   box-sizing: border-box;
   background: white;
@@ -168,10 +178,10 @@
   border-radius: 50%;
 }
 #app-header #app-search .user-info .user-photo .fa {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   font-size: 30px;
-  line-height: 40px;
+  line-height: 45px;
   color: #CFD8DC;
 }
 #app-header #app-search .user-info .user-details {
@@ -180,7 +190,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  height: 40px;
+  height: 45px;
   box-sizing: border-box;
   font-size: 16px;
   color: #9098B1;
@@ -194,21 +204,21 @@
 }
 #app-header #app-search .user-info .controls {
   float: left;
-  height: 40px;
+  height: 45px;
   margin-top: 2px;
   margin-right: 20px;
   margin-left: 10px;
   box-sizing: border-box;
-  line-height: 40px;
+  line-height: 45px;
 }
 #app-header #app-search .user-info .controls .fa {
   position: relative;
   float: left;
   z-index: 1;
-  height: 40px;
+  height: 45px;
   font-size: 18px;
-  line-height: 40px;
-  color: #9098B1;
+  line-height: 45px;
+  color: #BDBDBD;
 }
 #app-header #app-search .user-info .controls .fa .notification {
   position: relative;
@@ -244,7 +254,7 @@
   overflow: hidden;
   position: absolute;
   left: 0px;
-  top: 60px;
+  top: 65px;
   bottom: 0px;
   width: 400px;
   box-sizing: border-box;
@@ -254,7 +264,7 @@
   overflow: auto;
   position: absolute;
   left: 400px;
-  top: 60px;
+  top: 65px;
   right: 0px;
   bottom: 0px;
   box-sizing: border-box;

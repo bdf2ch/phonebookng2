@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { PhonebookComponent } from './phonebook/phonebook/phonebook.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
 import { PhonebookModule } from "./phonebook/phonebook.module";
+import { JsonRpcModule } from '@bdf2ch/jsonrpc';
 import { ApplicationResolveGuard } from './resolve.guard';
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
@@ -31,7 +32,8 @@ const routes: Routes = [
     FormsModule,
     HttpModule,
     UiModule,
-    PhonebookModule
+    PhonebookModule,
+    JsonRpcModule
   ],
   declarations: [
     AppComponent,

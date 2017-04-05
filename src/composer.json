@@ -1,0 +1,16 @@
+{
+    "name": "bdf2ch/phonebook",
+    "description": "Phonebook app",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergey Voronov",
+            "email": "bdf2ch@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "jsonrpc/jsonrpc": "^1.0"
+    }
+}

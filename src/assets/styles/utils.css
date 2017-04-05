@@ -394,7 +394,7 @@ input[type='number'].obtique {
 input[type='text'].big,
 input[type='password'].big,
 input[type='number'].big {
-  height: 41px;
+  height: 45px;
   padding: 10px;
 }
 input[type='text'].append,
@@ -912,7 +912,6 @@ a.blue:hover {
   overflow: hidden;
   position: absolute;
   right: 10px;
-  top: 0px;
   bottom: 0px;
   width: 6px;
   padding-top: 20px;

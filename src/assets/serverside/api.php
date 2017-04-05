@@ -1,6 +1,7 @@
 <?php
 
     $DS = DIRECTORY_SEPARATOR;
+    //require_once $_SERVER['DOCUMENT_ROOT'].$DS.'assets'.$DS.'vandor'.$DS.'autoload.php';
     require_once $_SERVER["DOCUMENT_ROOT"].$DS."assets".$DS."serverside".$DS."config.php";
     require_once $_SERVER["DOCUMENT_ROOT"].$DS."assets".$DS."serverside".$DS."sessions.php";
     //require_once $_SERVER["DOCUMENT_ROOT"].$DS."assets".$DS."serverside".$DS."users.php";

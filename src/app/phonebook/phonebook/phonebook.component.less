@@ -1,5 +1,11 @@
-@app-header-height: 60px;
+@app-header-height: 65px;
+@app-header-background-color: #03A9F4;
+
 @app-divisions-width: 400px;
+@app-divisions-background-color: #E2E5EE;
+
+@app-contacts-background-color: #F3F3F8;
+
 
 #app-header {
   position: absolute;
@@ -12,11 +18,21 @@
   height: @app-header-height;
   box-sizing: border-box;
   //background: #E8EAF6;
-  background: white;
+  background: @app-header-background-color;
   border-bottom: 1px solid #EAEAF0;
   -webkit-box-shadow: 0px 1px 10px -2px rgba(0,0,0,0.56);
   -moz-box-shadow: 0px 1px 10px -2px rgba(0,0,0,0.56);
   box-shadow: 0px 1px 10px -2px rgba(0,0,0,0.56);
+
+
+  #app-title {
+    width: @app-divisions-width;
+    height: @app-header-height;
+
+    .caption {
+      height: 40px;
+    }
+  }
 
   #app-user {
     float: left;
@@ -36,8 +52,8 @@
       width: @app-header-height;
       height: @app-header-height - 10px;
       margin-right: 10px;
-      margin-top: 5px;
-      margin-bottom: 5px;
+      margin-top: 7px;
+      margin-bottom: 7px;
       box-sizing: border-box;
       background: url('/assets/images/logo.png');
       //background-origin: content-box;
@@ -46,11 +62,14 @@
 
 
     .app-title {
-      font-family: 'PT Sans Bold';
+      display: flex;
+      height: 40px;
+      font-family: 'Roboto Bold';
       font-size: 18px;
       text-transform: uppercase;
       line-height: @app-header-height;
-      color: #9098B1;
+      color: white;
+      border-right: 1px solid #35BAF6;
     }
 
 
@@ -250,7 +269,7 @@
           height: @app-header-height - 20px;
           font-size: 18px;
           line-height: @app-header-height - 20px;
-          color: #9098B1;
+          color: #BDBDBD;
           .notification {
             position: relative;
             float: right;
@@ -301,7 +320,7 @@
   bottom: 0px;
   width: @app-divisions-width;
   box-sizing: border-box;
-  background: #E2E5EE;
+  background: @app-divisions-background-color;
 }
 
 
@@ -313,7 +332,7 @@
   right: 0px;
   bottom: 0px;
   box-sizing: border-box;
-  background: #F3F3F8;
+  background: @app-contacts-background-color;
 
   @search-bar-height: 80px;
   #search-bar {
