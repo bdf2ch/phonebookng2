@@ -1,5 +1,8 @@
 @app-header-height: 65px;
 @app-header-background-color: #03A9F4;
+@app-header-logo-width: 50px;
+@app-header-favorite-icon-color: #FFC107;
+@app-header-auth-width: 100px;
 
 @app-divisions-width: 400px;
 @app-divisions-background-color: #E2E5EE;
@@ -9,6 +12,7 @@
 
 #app-header {
   position: absolute;
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
@@ -25,14 +29,48 @@
   box-shadow: 0px 1px 10px -2px rgba(0,0,0,0.56);
 
 
-  #app-title {
+  #app-info {
+    display: flex;
     width: @app-divisions-width;
     height: @app-header-height;
+    padding-left: 20px;
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    .logo {
+      width: @app-header-logo-width;
+      height: @app-header-logo-width;
+      background: url('/assets/images/logo.png');
+      background-repeat: no-repeat !important;
+
+      &.rosseti {
+        background: url('/assets/images/rosseti_logo.png');
+        background-size: contain !important;
+      }
+
+      &.mrsk {
+        background: url('/assets/images/mrsk_logo.png');
+        background-size: cover !important;
+      }
+    }
 
     .caption {
+      flex: auto;
       height: 40px;
+      padding-left: 10px;
+      padding-right: 30px;
+      box-sizing: border-box;
+      font-family: 'Roboto Regular';
+      font-size: 20px;
+      line-height: 40px;
+      color: white;
+      border-right: 1px solid #35BAF6;
     }
   }
+
+
 
   #app-user {
     float: left;
@@ -179,10 +217,11 @@
   #app-search {
     display: flex;
     flex-direction: row;
+    flex: auto;
     justify-content: center;
     align-items: center;
     height: @app-header-height;
-    margin-left: @app-divisions-width;
+    //margin-left: @app-divisions-width;
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -239,10 +278,11 @@
         box-sizing: border-box;
         font-size: 16px;
         //line-height: @app-header-height - 20px;
-        color: #9098B1;
+        color: white;
 
         .user-name {
           //font-family: 'PT Sans Bold';
+          font-family: 'Roboto Regular';
           .fa {
             margin-left: 5px;
             font-size: 14px;
@@ -269,23 +309,24 @@
           height: @app-header-height - 20px;
           font-size: 18px;
           line-height: @app-header-height - 20px;
-          color: #BDBDBD;
+          color: @app-header-favorite-icon-color;
           .notification {
             position: relative;
             float: right;
             z-index: 2;
             display: inline-block;
-            min-width: 10px;
+            width: 20px;
+            height: 20px;
             margin-top: 1px;
-            margin-left: -5px;
-            font-family: 'PT Sans Bold';
-            font-size: 11px;
+            margin-left: -4px;
+            font-family: 'Roboto Bold';
+            font-size: 13px;
             text-align: center;
-            line-height: 11px;
-            padding: 3px;
+            line-height: 20px;
+           //padding: 4px;
             color: white;
-            background: #FF3463;
-            border-radius: 4px;
+            background: #F06292;
+            border-radius: 50%;
           }
         }
 
@@ -309,11 +350,25 @@
       }
     }
   }
+
+  #app-auth {
+    width: @app-header-auth-width;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    &:hover {
+      //color: ;
+    }
+
+    .fa {
+      font-size: 19px;
+    }
+  }
 }
 
 
 #app-divisions {
-  overflow: hidden;
+  //overflow: hidden;
   position: absolute;
   left: 0px;
   top: @app-header-height;
@@ -325,7 +380,7 @@
 
 
 #app-contacts {
-  overflow: auto;
+  //overflow: auto;
   position: absolute;
   left: @app-divisions-width;
   top: @app-header-height;

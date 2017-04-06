@@ -1,5 +1,7 @@
 <div id="app-header">
+  <!--
   <div id="app-user">
+  -->
     <!--
     <div class="not-authorized width-100 text-center" *ngIf="$session.getCurrentUser() === null">
       Вы не авторизованы. Пройдите авторизацию для доступа ко всем функциям приложения.
@@ -34,10 +36,20 @@
 
 
 
+    <!--
     <div class="app-logo"></div>
     <span class="app-title">Телефонный справочник</span>
+    -->
 
+    <div id="app-info">
+      <div class="logo rosseti"></div>
+      <!--<div class="logo mrsk"></div>-->
+      <div class="caption">Телефонный справочник</div>
+    </div>
+
+ <!--
   </div>
+  -->
   <div id="app-search">
     <div class="input-with-controls dark">
       <i class="fa fa-search"></i>
@@ -63,7 +75,11 @@
         <div class="user-name">{{ $session.getCurrentUser().name + ' ' + $session.getCurrentUser().surname }}<i class="fa fa-caret-down"></i></div>
       </div>
     </div>
+  </div>
 
+  <div id="app-auth" *ngIf="$session.getCurrentUser() === null" (click)="openLoginPopup()">
+    <i class="fa fa-sign-in"></i>
+    Войти
   </div>
 </div>
 
@@ -95,7 +111,7 @@
 </div>
 
 
-<div id="app-contacts" class="padding-20">
+<div id="app-contacts" class="padding-20" scrollbar>
 
   <!--
   <div class="contact" *ngFor="let contact of $phonebook.getAll()">
@@ -186,9 +202,6 @@
     <div class="work-phone">
       <div class="work-phone-item">
         <i class="fa fa-phone" title="Рабочий телефон"></i>22-41
-      </div>
-      <div class="work-phone-item">
-        <i class="fa fa-phone" title="Рабочий телефон"></i>333-44
       </div>
     </div>
     <div class="mobile-phone">

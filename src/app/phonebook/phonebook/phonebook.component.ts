@@ -55,6 +55,7 @@ export class PhonebookComponent implements OnInit {
         });
       }
     }
+    console.log('tree', tree);
   };
 
 
@@ -79,10 +80,14 @@ export class PhonebookComponent implements OnInit {
 
   searchForContacts(query: string) {
     if (query.length >= 3) {
-      this.$phonebook.searchContacts().subscribe();
+      this.$phonebook.searchContacts().subscribe(() => {
+        this.scrollToTop();
+      });
     } else if (query.length === 2 && this.$phonebook.isInSearchMode() === true) {
       if (this.divisionId !== 0)
-        this.$phonebook.fetchContactsByDivisionId(this.divisionId).subscribe();
+        this.$phonebook.fetchContactsByDivisionId(this.divisionId).subscribe(() => {
+        this.scrollToTop();
+        });
     }
   };
 
@@ -91,7 +96,9 @@ export class PhonebookComponent implements OnInit {
     this.$phonebook.clear();
     this.$phonebook.searchQuery = "";
     if (this.divisionId !== 0)
-      this.$phonebook.fetchContactsByDivisionId(this.divisionId).subscribe();
+      this.$phonebook.fetchContactsByDivisionId(this.divisionId).subscribe(() => {
+      this.scrollToTop();
+      });
 
   };
 

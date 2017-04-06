@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, ElementRef, ChangeDetectionStrategy} from '@angular/core';
 import { TreeService } from './tree.service';
 import { TreeItem, TreeItemConfig } from './tree-item';
 import {Observable} from "rxjs";
@@ -7,7 +7,8 @@ import {Observable} from "rxjs";
 @Component({
   selector: 'tree',
   templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.css']
+  styleUrls: ['./tree.component.css'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class TreeComponent implements OnInit {
   @Input() id:string;

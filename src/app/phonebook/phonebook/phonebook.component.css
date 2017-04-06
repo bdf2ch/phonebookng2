@@ -1,5 +1,6 @@
 #app-header {
   position: absolute;
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
@@ -14,12 +15,41 @@
   -moz-box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.56);
   box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.56);
 }
-#app-header #app-title {
+#app-header #app-info {
+  display: flex;
   width: 400px;
   height: 65px;
+  padding-left: 20px;
+  box-sizing: border-box;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
-#app-header #app-title .caption {
+#app-header #app-info .logo {
+  width: 50px;
+  height: 50px;
+  background: url('/assets/images/logo.png');
+  background-repeat: no-repeat !important;
+}
+#app-header #app-info .logo.rosseti {
+  background: url('/assets/images/rosseti_logo.png');
+  background-size: contain !important;
+}
+#app-header #app-info .logo.mrsk {
+  background: url('/assets/images/mrsk_logo.png');
+  background-size: cover !important;
+}
+#app-header #app-info .caption {
+  flex: auto;
   height: 40px;
+  padding-left: 20px;
+  padding-right: 30px;
+  box-sizing: border-box;
+  font-family: 'Roboto Regular';
+  font-size: 20px;
+  line-height: 40px;
+  color: white;
+  border-right: 1px solid #35BAF6;
 }
 #app-header #app-user {
   float: left;
@@ -142,10 +172,10 @@
 #app-header #app-search {
   display: flex;
   flex-direction: row;
+  flex: auto;
   justify-content: center;
   align-items: center;
   height: 65px;
-  margin-left: 400px;
   padding-top: 10px;
   padding-left: 20px;
   padding-right: 20px;
@@ -193,7 +223,10 @@
   height: 45px;
   box-sizing: border-box;
   font-size: 16px;
-  color: #9098B1;
+  color: white;
+}
+#app-header #app-search .user-info .user-details .user-name {
+  font-family: 'Roboto Regular';
 }
 #app-header #app-search .user-info .user-details .user-name .fa {
   margin-left: 5px;
@@ -218,24 +251,24 @@
   height: 45px;
   font-size: 18px;
   line-height: 45px;
-  color: #BDBDBD;
+  color: #FFC107;
 }
 #app-header #app-search .user-info .controls .fa .notification {
   position: relative;
   float: right;
   z-index: 2;
   display: inline-block;
-  min-width: 10px;
+  width: 20px;
+  height: 20px;
   margin-top: 1px;
-  margin-left: -5px;
-  font-family: 'PT Sans Bold';
-  font-size: 11px;
+  margin-left: -4px;
+  font-family: 'Roboto Bold';
+  font-size: 13px;
   text-align: center;
-  line-height: 11px;
-  padding: 3px;
+  line-height: 20px;
   color: white;
-  background: #FF3463;
-  border-radius: 4px;
+  background: #F06292;
+  border-radius: 50%;
 }
 #app-header #app-search .user-login {
   width: 300px;
@@ -250,8 +283,16 @@
 #app-header #app-search .user-login button:hover {
   border: 1px solid #B0BEC5;
 }
+#app-header #app-auth {
+  width: 100px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+#app-header #app-auth .fa {
+  font-size: 19px;
+}
 #app-divisions {
-  overflow: hidden;
   position: absolute;
   left: 0px;
   top: 65px;
@@ -261,7 +302,6 @@
   background: #E2E5EE;
 }
 #app-contacts {
-  overflow: auto;
   position: absolute;
   left: 400px;
   top: 65px;

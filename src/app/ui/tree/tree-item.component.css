@@ -65,7 +65,7 @@
   border-bottom: none;
 }
 .tree-item.inline .item-details.selected {
-  font-family: 'PT Sans Bold';
+  font-family: 'Roboto Bold' !important;
 }
 .tree-item.inline .item-details.selected .item-title {
   color: #3F51B5;
@@ -76,9 +76,9 @@
   height: auto;
   padding-top: 5px;
   padding-bottom: 5px;
-  line-height: 14px;
-  font-family: 'PT Sans Bold';
-  font-size: 14px;
+  line-height: 16px;
+  font-family: 'Roboto Regular';
+  font-size: 15px;
   text-align: left;
   cursor: pointer;
   color: #595872;
