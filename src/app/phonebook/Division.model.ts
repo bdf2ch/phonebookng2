@@ -1,4 +1,5 @@
 import { Model } from "./Model.class";
+import { Contact } from "./Contact.model";
 
 
 export interface DivisionConfig {
@@ -16,6 +17,7 @@ export class Division extends Model {
   departmentId: number = 0;
   title: string = "";
   isDepartment: boolean = false;
+  contacts: Contact[] = [];
 
   constructor (config?: DivisionConfig) {
     super();

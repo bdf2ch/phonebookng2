@@ -192,26 +192,34 @@
 
 
 
+  <div class="division-item" *ngFor="let division of $phonebook.getAll()">
+    <div class="division-title">{{ division.title }}</div>
 
-  <div class="contact-item grid" *ngFor="let contact of $phonebook.getAll()">
-    <div class="favorite" title="{{ $phonebook.isContactInFavorites(contact) === true ? 'Удалить из избранных' : 'Добавить в избранные' }}" *ngIf="$session.getCurrentUser() !== null" [ngClass]="{active: $phonebook.isContactInFavorites(contact) === true}"  (click)="addToFavorites(contact)"><i class="fa fa-star"></i></div>
-    <div class="photo" [ngClass]="{'with-photo': contact.photo !== ''}" [ngStyle]="{'background': contact.photo !== '' ? 'url(' + contact.photo + ')' : ''}">
-    </div>
-    <div class="name">{{ contact.surname }}<br>{{ contact.name + ' ' + contact.fname }}</div>
-    <div class="position" title="{{ contact.position }}">{{ contact.position }}</div>
-    <div class="work-phone">
-      <div class="work-phone-item">
-        <i class="fa fa-phone" title="Рабочий телефон"></i>22-41
+    <div class="division-contacts">
+      <div class="contact-item grid" *ngFor="let contact of division.contacts">
+        <div class="favorite" title="{{ $phonebook.isContactInFavorites(contact) === true ? 'Удалить из избранных' : 'Добавить в избранные' }}" *ngIf="$session.getCurrentUser() !== null" [ngClass]="{active: $phonebook.isContactInFavorites(contact) === true}"  (click)="addToFavorites(contact)"><i class="fa fa-star"></i></div>
+        <div class="photo" [ngClass]="{'with-photo': contact.photo !== ''}" [ngStyle]="{'background': contact.photo !== '' ? 'url(' + contact.photo + ')' : ''}">
+        </div>
+        <div class="name">{{ contact.surname }}<br>{{ contact.name + ' ' + contact.fname }}</div>
+        <div class="position" title="{{ contact.position }}">{{ contact.position }}</div>
+        <div class="work-phone">
+          <div class="work-phone-item">
+            <i class="fa fa-phone" title="Рабочий телефон"></i>22-41
+          </div>
+        </div>
+        <div class="mobile-phone">
+          <i class="fa fa-mobile-phone" title="Мобильный телефон"></i>+7 (921) 555-66-77
+        </div>
+        <div class="email">
+          <i class="fa fa-at" title="Электронная почта"></i><a href="mailto:{{ contact.email }}" *ngIf="contact.email !== ''">{{ contact.email }}</a>
+          <span class="empty-value" *ngIf="contact.email === ''">Не указан</span>
+        </div>
       </div>
     </div>
-    <div class="mobile-phone">
-      <i class="fa fa-mobile-phone" title="Мобильный телефон"></i>+7 (921) 555-66-77
-    </div>
-    <div class="email">
-      <i class="fa fa-at" title="Электронная почта"></i><a href="mailto:{{ contact.email }}" *ngIf="contact.email !== ''">{{ contact.email }}</a>
-      <span class="empty-value" *ngIf="contact.email === ''">Не указан</span>
-    </div>
   </div>
+
+
+
 
 
   <!--

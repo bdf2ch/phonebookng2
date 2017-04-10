@@ -4,13 +4,14 @@ import { Contact } from "./Contact.model";
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
-import {SessionService} from "./session.service";
+import { SessionService } from "./session.service";
+import { Division } from "./Division.model";
 
 
 @Injectable()
 export class PhoneBookService {
   private apiUrl: string = '/assets/serverside/api.php';
-  private contacts: Contact[] = [];
+  private contacts: Division[] = [];
   private favorites: Contact[] = [];
   loading: boolean = false;
   searchMode: boolean = false;
@@ -37,9 +38,15 @@ export class PhoneBookService {
         let body = res.json();
         let length = body.length;
         for (let i = 0; i < length; i++) {
-          let contact = new Contact(body[i]);
-          this.contacts.push(contact);
+          let division = new Division(body[i].division);
+          let contactsLength = body[i].contacts.length;
+          for (let x = 0; x < contactsLength; x++) {
+            let contact = new Contact(body[i].contacts[x]);
+            division.contacts.push(contact);
+          }
+          this.contacts.push(division);
         }
+        console.log(this.contacts);
         return this.contacts;
       })
       .take(1)
@@ -66,10 +73,15 @@ export class PhoneBookService {
           let length = body.length;
           this.clear();
           for (let i = 0; i < length; i++) {
-            let contact = new Contact(body[i]);
-            this.contacts.push(contact);
-            this.loading = false;
+            let division = new Division(body[i].division);
+            let x = body[i].contacts.length;
+            for (let z = 0; z < x; z++) {
+              let contact = new Contact(body[i].contacts[z]);
+              division.contacts.push(contact);
+            }
+            this.contacts.push(division);
           }
+          this.loading = false;
         } else
           return null;
       })
@@ -136,9 +148,9 @@ export class PhoneBookService {
 
   /**
    * Получение массива всех загруженных контактов
-   * @returns {Contact[]}
+   * @returns {Division[]}
    */
-  getAll(): Contact[] {
+  getAll(): Division[] {
     return this.contacts;
   };
 

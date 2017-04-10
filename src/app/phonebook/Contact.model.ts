@@ -49,7 +49,7 @@ export class Contact extends Model {
       if (config.photo)
         this.photo = config.photo;
       this.fio = this.surname + ' ' + this.name + ' ' + this.fname;
-      this.search = this.name.toLowerCase() + ' ' + this.fname.toLowerCase() + ' ' + this.surname.toLowerCase() + ' ' + this.email.toLowerCase() + this.phones.join(' ').toLowerCase() + ' ' + this.mobile.toLowerCase();
+      //this.search = this.fio.toLowerCase();
     }
   };
 };

@@ -42,7 +42,7 @@
 #app-header #app-info .caption {
   flex: auto;
   height: 40px;
-  padding-left: 20px;
+  padding-left: 10px;
   padding-right: 30px;
   box-sizing: border-box;
   font-family: 'Roboto Regular';
@@ -320,6 +320,19 @@
 }
 #app-contacts #search-bar #contacts-search.non-searchable {
   color: gray;
+}
+#app-contacts .division-item {
+  overflow: auto;
+}
+#app-contacts .division-item .division-title {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-family: 'Roboto Bold';
+  font-size: 20px;
+  color: #9098B1;
+}
+#app-contacts .division-item .division-contacts {
+  overflow: auto;
 }
 #app-contacts #contacts {
   overflow: auto;
