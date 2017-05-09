@@ -3,6 +3,19 @@
     /**
     *
     **/
+    function getPhoneBookDivisions ($parameters) {
+        global $link;
+
+        $result = pg_query($link, "SELECT get_phonebook_divisions()");
+        $divisions = pg_fetch_all($result);
+
+        echo $divisions[0]["get_phonebook_divisions"];
+        return true;
+    }
+
+    /**
+    *
+    **/
     function getContactsByDivisionId ($parameters) {
         global $link;
         $divisionId = $parameters -> divisionId;

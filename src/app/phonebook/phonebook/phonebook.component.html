@@ -42,7 +42,7 @@
     -->
 
     <div id="app-info">
-      <div class="logo rosseti"></div>
+      <!--<div class="logo rosseti"></div>-->
       <!--<div class="logo mrsk"></div>-->
       <div class="caption">Телефонный справочник</div>
     </div>
@@ -70,10 +70,15 @@
       <div class="controls">
         <i class="fa fa-star" *ngIf="$phonebook.getFavorites().length > 0" ><span class="notification">{{ $phonebook.getFavorites().length }}</span></i>
       </div>
-      <div class="user-photo"><i class="fa fa-user"></i></div>
+      <div class="user-photo">
+        <!--<i class="fa fa-user"></i>-->
+        <span>{{ $session.getCurrentUser().name[0] + $session.getCurrentUser().surname[0] }}</span>
+      </div>
+      <!--
       <div class="user-details">
         <div class="user-name">{{ $session.getCurrentUser().name + ' ' + $session.getCurrentUser().surname }}<i class="fa fa-caret-down"></i></div>
       </div>
+      -->
     </div>
   </div>
 

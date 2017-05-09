@@ -25,7 +25,7 @@ export class DivisionsService {
   fetchAll(): Observable<Division[]> {
     let headers = new Headers({ "Content-Type": "application/json" });
     let options = new RequestOptions({ headers: headers });
-    let parameters = { action: "getAllDivisions" };
+    let parameters = { action: "getPhoneBookDivisions" };
 
     return this.http.post(apiUrl, parameters, options)
       .map((res: Response) => {

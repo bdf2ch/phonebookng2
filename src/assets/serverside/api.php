@@ -19,6 +19,7 @@
     switch ($params -> action) {
         case "getSessionByToken": getSessionByToken($params -> data); break;
         case "getAllDivisions": getAllDivisions(); break;
+        case "getPhoneBookDivisions": getPhoneBookDivisions(); break;
         case "login": login($params -> data); break;
         case "getContactsByDivisionId": getContactsByDivisionId($params -> data); break;
         case "searchContacts": searchContacts($params -> data); break;
